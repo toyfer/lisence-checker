@@ -16,7 +16,7 @@ jobs:
       - name: enviroment-setup
         run: |
           pip install pipenv
-          pip env --python 3.10
+          pipenv --python 3.10
 
       - name: install-target
         run: |
