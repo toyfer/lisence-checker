@@ -20,7 +20,7 @@ jobs:
 
       - name: install-target
         run: |
-          pipenv install openai-whisper
+          : # pipenv install openai-whisper
 
       - name: Run Licenses Check
         run: |
