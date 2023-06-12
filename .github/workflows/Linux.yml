@@ -13,13 +13,16 @@ jobs:
       - name: Upgrade pip
         run: |
           pip install --upgrade pip
+      - name: enviroment-setup
+        run: |
+          pip install pipenv
+          pip env --python 3.10
 
       - name: install-target
         run: |
-          pip install openai-whisper
+          pipenv install openai-whisper
 
       - name: Run Licenses Check
         run: |
-          pip install pip-licenses
-      - name: Run Licenses Checks
-        run: pip-licenses
+          pipenv install pip-licenses
+          pip-licenses
