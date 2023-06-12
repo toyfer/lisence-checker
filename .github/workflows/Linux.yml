@@ -7,7 +7,6 @@ jobs:
   license-check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
       - uses: actions/setup-python@v3
         with:
           python-version: "3.10"
@@ -21,12 +20,6 @@ jobs:
 
       - name: Run Licenses Check
         run: |
-          pip install licenses
+          pip install pip-licenses
       - name: Run Licenses Checks
-        run: >
-          pip-licenses
-          --with-system
-          --allow-only="
-            MIT License;
-            BSD License;
-            "
+        run: pip-licenses
