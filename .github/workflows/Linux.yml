@@ -22,4 +22,11 @@ jobs:
       - name: Run Licenses Check
         run: |
           pip install licenses
+      - name: Run Licenses Checks
+        run: >
           pip-licenses
+          --with-system
+          --allow-only="
+            MIT License;
+            BSD License;
+            "
