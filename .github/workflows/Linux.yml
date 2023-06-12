@@ -22,4 +22,5 @@ jobs:
       - name: Run Licenses Check
         run: |
           pip install license
+          export PATH=$PATH:~/.local/bin
           pip-license
