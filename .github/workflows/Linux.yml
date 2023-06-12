@@ -25,4 +25,4 @@ jobs:
       - name: Run Licenses Check
         run: |
           pipenv install pip-licenses
-          pipenv run pip-licenses
+          pipenv run pip-licenses -–with-urls –-with-description
