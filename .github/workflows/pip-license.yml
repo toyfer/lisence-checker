@@ -3,9 +3,15 @@ name: linux on license-checker
 on:
   push:
 
+env:
+  target: pipenv install openai-whisper
+
 jobs:
   license-check:
-    runs-on: ubuntu-latest
+    runs-on: ${{ martix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
     steps:
       - uses: actions/setup-python@v3
         with:
@@ -20,9 +26,10 @@ jobs:
 
       - name: install-target
         run: |
-          pipenv install openai-whisper
+          $target
 
       - name: Run Licenses Check
         run: |
           pipenv install pip-licenses
           pipenv run pip-licenses -–with-urls –-with-description
+  
